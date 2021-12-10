@@ -10,7 +10,6 @@ export const getAllData = () => async (dispatch) => {
     .get(url)
     .catch(() => dispatch({ type: types.GET_ALL_DATA_FAIL }));
 
-  console.log("respnse from get all data", response.data);
   dispatch({ type: types.GET_ALL_DATA_SUCCESS, payload: response.data });
 };
 

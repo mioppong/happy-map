@@ -7,15 +7,12 @@ import { PersistGate } from "redux-persist/integration/react";
 import MapScreen from "./app/screens/MapScreen/MapScreen";
 import { persistedStore, store } from "./app/redux/store";
 import MyBottomSheet from "./app/components/MyBottomSheet/MyBottomSheet";
-import { getPhoneID } from "./app/api";
 
 const App = () => {
   const [location, setLocation] = useState(null);
 
   useEffect(() => {
     (async () => {
-      console.log("THE PHONE ID FOR MY SIM IS", await getPhoneID());
-
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
         setErrorMsg("Permission to access location was denied");
@@ -27,12 +24,19 @@ const App = () => {
     })();
   }, []);
 
+  const handleSadButton = ()=> {
+
+  }
+  const handleHappyButton = ()=> {
+
+  }
+
   return (
     <Provider store={store}>
       <PersistGate persistor={persistedStore}>
         <View style={styles.container}>
           <MapScreen />
-          <MyBottomSheet />
+          <MyBottomSheet handleHappyButton={handleHappyButton} handleSadButton={handleSadButton}/>
         </View>
       </PersistGate>
     </Provider>
