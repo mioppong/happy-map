@@ -1,55 +1,19 @@
 import React, { useEffect } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  TouchableOpacity,
-} from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 import { connect } from "react-redux";
 import MapView, { Marker, Callout } from "react-native-maps";
 
-import SadIcon from "../../components/Icons/SadIcon";
-import HappyIcon from "../../components/Icons/HappyIcon";
-import myColors from "../../styles/colors";
 import { getAllData } from "../../redux/actions";
+import CustomMapPin from "../../components/CustomMapPin";
+import CustomCallout from "../../components/CustomCallout/CustomCallout";
 
-const MyCustomMarkerView = ({ item }) => {
-  return (
-    <View
-      style={{
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      {item.emotion === "sad" ? <SadIcon /> : <HappyIcon />}
-    </View>
-  );
-};
-
-const MyCustomCalloutView = ({ item }) => {
-  const calloutColor =
-    item.emotion === "sad" ? myColors.fourth : myColors.first;
-  return (
-    <View
-      style={{
-        height: 100,
-        width: 150,
-        backgroundColor: calloutColor,
-        borderRadius: 20,
-        padding: "5%",
-      }}
-    >
-      <Text style={{ fontSize: 12, fontWeight: "bold" }}>{item.text}</Text>
-    </View>
-  );
-};
 const MapScreen = (props) => {
   const { homeStore, getAllData } = props;
 
   useEffect(() => {
     props.getAllData();
   }, []);
+
   return (
     <MapView style={styles.map}>
       <MapView style={styles.map}>
@@ -63,9 +27,10 @@ const MapScreen = (props) => {
                 }}
                 title={`Title is${index}`}
               >
-                <MyCustomMarkerView item={item} />
+                <CustomMapPin item={item} />
+
                 <Callout tooltip>
-                  <MyCustomCalloutView item={item} />
+                  <CustomCallout item={item} />
                 </Callout>
               </Marker>
             ))
