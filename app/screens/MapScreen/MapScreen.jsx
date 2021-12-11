@@ -8,7 +8,7 @@ import CustomMapPin from "../../components/CustomMapPin";
 import CustomCallout from "../../components/CustomCallout/CustomCallout";
 
 const MapScreen = (props) => {
-  const { homeStore, getAllData } = props;
+  const { homeStore } = props;
 
   useEffect(() => {
     props.getAllData();
