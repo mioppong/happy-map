@@ -24,20 +24,23 @@ const App = () => {
     })();
   }, []);
 
-  const handleSadButton = ()=> {
-
-  }
-  const handleHappyButton = ()=> {
-
-  }
-
   return (
     <Provider store={store}>
       <PersistGate persistor={persistedStore}>
         <View style={styles.container}>
           <MapScreen />
-          <MyBottomSheet handleHappyButton={handleHappyButton} handleSadButton={handleSadButton}/>
+          <MyBottomSheet />
         </View>
+      </PersistGate>
+    </Provider>
+  );
+};
+
+const AppWrapper = () => {
+  return (
+    <Provider store={store}>
+      <PersistGate persistor={persistedStore}>
+        <App />
       </PersistGate>
     </Provider>
   );
@@ -49,4 +52,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default AppWrapper;

@@ -1,5 +1,11 @@
 import React, { useEffect } from "react";
-import { StyleSheet, Text, View, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
 import { connect } from "react-redux";
 import MapView, { Marker, Callout } from "react-native-maps";
 
@@ -39,28 +45,31 @@ const MyCustomCalloutView = ({ item }) => {
   );
 };
 const MapScreen = (props) => {
+  const { homeStore, getAllData } = props;
+
   useEffect(() => {
     props.getAllData();
   }, []);
-  const { homeStore } = props;
   return (
     <MapView style={styles.map}>
       <MapView style={styles.map}>
-        {homeStore.allData.map((item, index) => (
-          <Marker
-            key={index}
-            coordinate={{
-              latitude: Number(item.coordinates.latitude),
-              longitude: Number(item.coordinates.longitude),
-            }}
-            title={`Title is${index}`}
-          >
-            <MyCustomMarkerView item={item} />
-            <Callout tooltip>
-              <MyCustomCalloutView item={item} />
-            </Callout>
-          </Marker>
-        ))}
+        {!homeStore.loading
+          ? homeStore.allData.map((item, index) => (
+              <Marker
+                key={index}
+                coordinate={{
+                  latitude: Number(item.coordinates.latitude),
+                  longitude: Number(item.coordinates.longitude),
+                }}
+                title={`Title is${index}`}
+              >
+                <MyCustomMarkerView item={item} />
+                <Callout tooltip>
+                  <MyCustomCalloutView item={item} />
+                </Callout>
+              </Marker>
+            ))
+          : null}
       </MapView>
     </MapView>
   );

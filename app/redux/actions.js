@@ -6,9 +6,9 @@ export const getAllData = () => async (dispatch) => {
 
   const url = "https://61aecea833653500172f9fbf.mockapi.io/gethappydata";
 
-  const response = await axios
-    .get(url)
-    .catch(() => dispatch({ type: types.GET_ALL_DATA_FAIL }));
+  const response = await axios.get(url).catch(() => {
+    return dispatch({ type: types.GET_ALL_DATA_FAIL });
+  });
 
   dispatch({ type: types.GET_ALL_DATA_SUCCESS, payload: response.data });
 };
@@ -19,7 +19,7 @@ export const postData = (newData) => async (dispatch) => {
   const url = "https://61aecea833653500172f9fbf.mockapi.io/gethappydata";
 
   const response = await axios.get(url).catch(() => {
-    dispatch({ type: types.POST_NEW_DATA_FAIL });
+    return dispatch({ type: types.POST_NEW_DATA_FAIL });
   });
 
   dispatch({ type: types.GET_ALL_DATA_SUCCESS, payload: newData });

@@ -2,9 +2,9 @@ import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import RefreshIcon from "./RefreshIcon";
 
-const RefreshIconButton = () => {
+const RefreshIconButton = ({ onPress }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <RefreshIcon />
     </TouchableOpacity>
   );

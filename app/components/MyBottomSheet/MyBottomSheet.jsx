@@ -1,15 +1,21 @@
 import React, { useCallback, useMemo, useRef } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import BottomSheet from "@gorhom/bottom-sheet";
+import { connect } from "react-redux";
 
 import HappyIconButton from "../HappyIconButton";
 import SadIconButton from "../SadIconButton";
 import RefreshIconButton from "../RefreshIconButton";
+import { getAllData } from "../../redux/actions";
 
-const MyBottomSheet = ({ handleHappyButton, handleSadButton }) => {
+const MyBottomSheet = (props) => {
+  const { getAllData } = props;
   const bottomSheetRef = useRef(null);
   const snapPoints = useMemo(() => ["25%", "50%"], []);
   const handleSheetChanges = useCallback((index) => {}, []);
+
+  const handleSadButton = () => {};
+  const handleHappyButton = () => {};
   return (
     <BottomSheet
       ref={bottomSheetRef}
@@ -30,7 +36,7 @@ const MyBottomSheet = ({ handleHappyButton, handleSadButton }) => {
         </Text>
         <View style={{ flexDirection: "row", justifyContent: "space-evenly" }}>
           <SadIconButton size={100} handleSadButton={handleSadButton} />
-          <RefreshIconButton />
+          <RefreshIconButton onPress={getAllData} />
 
           <HappyIconButton size={100} handleHappyButton={handleHappyButton} />
         </View>
@@ -39,10 +45,20 @@ const MyBottomSheet = ({ handleHappyButton, handleSadButton }) => {
   );
 };
 
-export default MyBottomSheet;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
 });
+
+const mapStateToProps = (state) => ({
+  homeStore: state.homeStore,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getAllData: () => {
+    dispatch(getAllData());
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyBottomSheet);
