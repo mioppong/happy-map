@@ -10,13 +10,29 @@ import { getAllData, postData } from "../../redux/actions";
 import CustomTextInput from "../CustomTextInput/CustomTextInput";
 
 const MyBottomSheet = (props) => {
-  const { getAllData, homeStore } = props;
+  const { getAllData, homeStore, postData } = props;
   const bottomSheetRef = useRef(null);
   const snapPoints = useMemo(() => ["20%", "60%"], []);
   const handleSheetChanges = useCallback((index) => {}, []);
   const [text, setText] = useState("");
-  const handleSadButton = () => {};
-  const handleHappyButton = () => {};
+
+  const handleEmotionSelected = (emotion) => {
+    const { currentUser } = homeStore;
+
+    const newEmotion = {
+      id: currentUser.id,
+      coordinates: {
+        latitude: currentUser.coordinates.latitude,
+        longitude: currentUser.coordinates.longitude,
+      },
+      emotion: emotion,
+      text: text,
+      timestamp: Date.now(),
+      image: "",
+    };
+    postData(newEmotion);
+  };
+
   return (
     <BottomSheet
       ref={bottomSheetRef}
@@ -44,14 +60,14 @@ const MyBottomSheet = (props) => {
           <SadIconButton
             disabled={!homeStore.locationPermission}
             size={75}
-            handleSadButton={handleSadButton}
+            onPress={() => handleEmotionSelected(2)}
           />
           <RefreshIconButton onPress={getAllData} />
 
           <HappyIconButton
             size={75}
             disabled={!homeStore.locationPermission}
-            handleHappyButton={handleHappyButton}
+            onPress={() => handleEmotionSelected(1)}
           />
         </View>
         <CustomTextInput value={text} onChangeText={(text) => setText(text)} />

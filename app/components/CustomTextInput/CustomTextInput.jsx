@@ -30,7 +30,7 @@ const CustomTextInput = ({ onChangeText, value }) => {
               placeholder="100 WORD LIMIT"
               maxLength={100}
               multiline
-              style={styles.text}
+              style={[styles.text, { flex: 1 }]}
               value={value}
               onChangeText={(text) => onChangeText(text)}
             />

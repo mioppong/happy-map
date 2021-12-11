@@ -4,7 +4,7 @@ export const initialState = {
   allData: [],
   currentUser: {
     id: "",
-    coordinates: { longitude: 4, latitude: 4 },
+    coordinates: { longitude: 0, latitude: 0 },
     emotion: "",
     timestamp: "",
   },
@@ -27,15 +27,25 @@ const defaultReducer = (state = initialState, action) => {
       return newState;
 
     case types.POST_NEW_DATA_SUCCESS:
+      console.log("new user os", action.payload);
+      const currentUser = newState.allData.findIndex(
+        (item) => item.id === action.payload.id
+      );
 
+      if (currentUser === -1) {
+        newState.allData.push(action.payload);
+        newState.loading = false;
+        newState.currentUser = action.payload;
+        return newState;
+      }
+
+      newState.allData[currentUser] = action.payload;
       newState.currentUser = action.payload;
-      newState.allData.push(action.payload);
       newState.loading = false;
 
       return newState;
 
     case types.SAVE_USER_ID:
-
       newState.currentUser.id = action.payload;
       newState.loading = false;
       return newState;
@@ -48,9 +58,9 @@ const defaultReducer = (state = initialState, action) => {
       newState.loading = false;
       return newState;
 
-      case types.LOCATION_PERMISSIONS:
-        newState.locationPermission = action.payload;
-        return newState;
+    case types.LOCATION_PERMISSIONS:
+      newState.locationPermission = action.payload;
+      return newState;
     default:
       return newState;
   }
