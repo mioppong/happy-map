@@ -22,5 +22,15 @@ export const postData = (newData) => async (dispatch) => {
     return dispatch({ type: types.POST_NEW_DATA_FAIL });
   });
 
-  dispatch({ type: types.GET_ALL_DATA_SUCCESS, payload: newData });
+  dispatch({ type: types.POST_NEW_DATA_SUCCESS, payload: newData });
+};
+export const saveID = (id) => async (dispatch) => {
+  dispatch({ type: types.SAVE_USER_ID, payload: id });
+};
+export const saveLocation = (location) => async (dispatch) => {
+  dispatch({ type: types.SAVE_USER_LOCATION, payload: location });
+};
+
+export const changeLocationPermissions = (value) => async (dispatch) => {
+  dispatch({ type: types.LOCATION_PERMISSIONS, payload: value });
 };
