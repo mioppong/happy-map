@@ -18,7 +18,7 @@ const MyBottomSheet = (props) => {
   const bottomSheetRef = useRef(null);
   const snapPoints = useMemo(() => ["20%", "60%"], []);
   const handleSheetChanges = useCallback((index) => {}, []);
-  const [text, setText] = useState("");
+  const [text, setText] = useState("I feel blessed Today :)");
 
   const handleEmotionSelected = (emotion) => {
     const { currentUser } = homeStore;
