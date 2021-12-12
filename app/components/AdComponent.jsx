@@ -1,6 +1,7 @@
 import { AdMobBanner } from "expo-ads-admob";
 import React from "react";
 import { Platform, StyleSheet, View } from "react-native";
+import myCoolConfig from "../../config";
 
 const AdComponent = () => {
   const bannerError = (e) => {
@@ -12,8 +13,8 @@ const AdComponent = () => {
         bannerSize="fullBanner"
         adUnitID={
           Platform.OS == "ios"
-            ? "ca-app-pub-3940256099942544/6300978111"
-            : "ca-app-pub-3940256099942544/6300978111"
+            ? myCoolConfig.iosBanner
+            : myCoolConfig.androidBanner
         }
         servePersonalizedAds={false}
         onDidFailToReceiveAdWithError={(e) => bannerError(e)}

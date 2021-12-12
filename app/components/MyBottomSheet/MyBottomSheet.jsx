@@ -73,9 +73,13 @@ const MyBottomSheet = (props) => {
           />
         </View>
         <CustomTextInput value={text} onChangeText={(text) => setText(text)} />
+        <View style={{ marginTop: 20 }}>
+          <CopyEthAddress />
+        </View>
 
-        <AdComponent />
-        <CopyEthAddress />
+        <View style={{ marginTop: 20 }}>
+          <AdComponent />
+        </View>
         {/* <Text>{homeStore.currentUser.id}</Text>
         <Text>{homeStore.locationPermission ? "ENABLED" : "DISABLED"}</Text>
 

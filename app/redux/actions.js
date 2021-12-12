@@ -1,11 +1,11 @@
 import axios from "axios";
+import myCoolConfig from "../../config";
 import types from "./actionTypes";
 
 export const getAllData = () => async (dispatch) => {
   dispatch({ type: types.BACKEND_REQUEST_START });
 
-  const url = "https://61aecea833653500172f9fbf.mockapi.io/gethappydata";
-
+  const url = myCoolConfig.backend
   const response = await axios.get(url).catch(() => {
     return dispatch({ type: types.GET_ALL_DATA_FAIL });
   });
@@ -16,7 +16,7 @@ export const getAllData = () => async (dispatch) => {
 export const postData = (newData) => async (dispatch) => {
   dispatch({ type: types.BACKEND_REQUEST_START });
 
-  const url = "https://61aecea833653500172f9fbf.mockapi.io/gethappydata";
+  const url = myCoolConfig.backend
 
   const response = await axios.get(url).catch(() => {
     return dispatch({ type: types.POST_NEW_DATA_FAIL });
