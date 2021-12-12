@@ -63,8 +63,9 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   information: {
-    textAlign: "right",
+    textAlign: "center",
     color: myColors.third,
+    fontWeight: "bold",
   },
   container: {
     width: "100%",

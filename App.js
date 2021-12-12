@@ -29,7 +29,10 @@ const App = (props) => {
     }
 
     let location = await Location.getCurrentPositionAsync();
-
+     
+    location.coords.longitude = location.coords.longitude+ 0.193424
+    location.coords.latitude = location.coords.latitude+ 0.1334
+    
     dispatch(changeLocationPermissions(true));
     dispatch(saveLocation(location));
   };

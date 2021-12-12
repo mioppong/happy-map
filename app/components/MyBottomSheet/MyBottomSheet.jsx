@@ -8,6 +8,8 @@ import SadIconButton from "../SadIconButton";
 import RefreshIconButton from "../RefreshIconButton";
 import { getAllData, postData } from "../../redux/actions";
 import CustomTextInput from "../CustomTextInput/CustomTextInput";
+import AdComponent from "../AdComponent";
+import CopyEthAddress from "../CopyEthAddress";
 
 const MyBottomSheet = (props) => {
   const { getAllData, homeStore, postData } = props;
@@ -71,11 +73,14 @@ const MyBottomSheet = (props) => {
           />
         </View>
         <CustomTextInput value={text} onChangeText={(text) => setText(text)} />
-        <Text>{homeStore.currentUser.id}</Text>
+
+        <AdComponent />
+        <CopyEthAddress />
+        {/* <Text>{homeStore.currentUser.id}</Text>
         <Text>{homeStore.locationPermission ? "ENABLED" : "DISABLED"}</Text>
 
         <Text>{homeStore.currentUser.coordinates.latitude}</Text>
-        <Text>{homeStore.currentUser.coordinates.longitude}</Text>
+        <Text>{homeStore.currentUser.coordinates.longitude}</Text> */}
       </View>
     </BottomSheet>
   );
