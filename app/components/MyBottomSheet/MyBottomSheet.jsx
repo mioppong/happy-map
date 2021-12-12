@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 import BottomSheet from "@gorhom/bottom-sheet";
 import { connect } from "react-redux";
 
@@ -10,6 +10,8 @@ import { getAllData, postData } from "../../redux/actions";
 import CustomTextInput from "../CustomTextInput/CustomTextInput";
 import AdComponent from "../AdComponent";
 import CopyEthAddress from "../CopyEthAddress";
+import FeedbackModal from "../FeedBackModal";
+import Settings from "../Settings/Settings";
 
 const MyBottomSheet = (props) => {
   const { getAllData, homeStore, postData } = props;
@@ -41,17 +43,17 @@ const MyBottomSheet = (props) => {
       snapPoints={snapPoints}
       onChange={handleSheetChanges}
     >
+      <View
+        style={{
+          marginLeft: 10,
+          flexDirection: "row",
+          height: 20,
+          width: 20,
+        }}
+      >
+        <Settings />
+      </View>
       <View style={{ padding: "2%" }}>
-        <Text
-          style={{
-            textAlign: "center",
-            fontWeight: "bold",
-            fontSize: 15,
-          }}
-        >
-          How do you feel
-        </Text>
-
         <View
           style={{
             flexDirection: "row",
@@ -73,18 +75,12 @@ const MyBottomSheet = (props) => {
           />
         </View>
         <CustomTextInput value={text} onChangeText={(text) => setText(text)} />
-        <View style={{ marginTop: 20 }}>
+        <View style={{ marginTop: 10 }}>
           <CopyEthAddress />
         </View>
-
         <View style={{ marginTop: 20 }}>
           <AdComponent />
         </View>
-        {/* <Text>{homeStore.currentUser.id}</Text>
-        <Text>{homeStore.locationPermission ? "ENABLED" : "DISABLED"}</Text>
-
-        <Text>{homeStore.currentUser.coordinates.latitude}</Text>
-        <Text>{homeStore.currentUser.coordinates.longitude}</Text> */}
       </View>
     </BottomSheet>
   );
@@ -93,6 +89,11 @@ const MyBottomSheet = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  howFeel: {
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: 15,
   },
 });
 
