@@ -47,6 +47,7 @@ const Settings = () => {
 
           <View style={{ marginVertical: 20 }}>{/* <FeedbackModal /> */}</View>
           <Text>Language Support coming soon ...</Text>
+          <Text>Picture Support coming soon ...</Text>
 
           <TouchableOpacity
             style={styles.closeButton}
