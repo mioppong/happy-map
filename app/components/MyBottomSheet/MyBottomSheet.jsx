@@ -75,7 +75,7 @@ const MyBottomSheet = (props) => {
         </View>
         <CustomTextInput value={text} onChangeText={(text) => setText(text)} />
 
-        <View style={{ marginTop: 30, backgroundColor: "red" }}>
+        <View style={{ marginTop: 30 }}>
           <AdComponent />
         </View>
       </View>
