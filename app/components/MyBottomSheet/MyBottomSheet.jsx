@@ -9,7 +9,6 @@ import RefreshIconButton from "../RefreshIconButton";
 import { getAllData, postData } from "../../redux/actions";
 import CustomTextInput from "../CustomTextInput/CustomTextInput";
 import AdComponent from "../AdComponent";
-import CopyEthAddress from "../CopyEthAddress";
 import FeedbackModal from "../FeedBackModal";
 import Settings from "../Settings/Settings";
 
@@ -75,10 +74,8 @@ const MyBottomSheet = (props) => {
           />
         </View>
         <CustomTextInput value={text} onChangeText={(text) => setText(text)} />
-        <View style={{ marginTop: 10 }}>
-          <CopyEthAddress />
-        </View>
-        <View style={{ marginTop: 20 }}>
+
+        <View style={{ marginTop: 30, backgroundColor: "red" }}>
           <AdComponent />
         </View>
       </View>

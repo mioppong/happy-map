@@ -1,14 +1,7 @@
 import React, { useState } from "react";
-import {
-  Modal,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-
+import CopyEthAddress from "../CopyEthAddress";
 import myColors from "../../styles/colors";
 import FeedbackModal from "../FeedBackModal";
 import GearIcon from "../Icons/GearIcon";
@@ -20,6 +13,7 @@ const Settings = () => {
       <TouchableOpacity onPress={() => setmodalVisible(true)}>
         <GearIcon />
       </TouchableOpacity>
+
       <Modal
         visible={modalVisible}
         style={{ backgroundColor: "#1a1a1a" }}
@@ -39,15 +33,17 @@ const Settings = () => {
                 fontSize: 40,
                 fontWeight: "bold",
                 color: myColors.third,
+                marginTop: 10,
               }}
             >
               Settings
             </Text>
           </View>
 
-          <View style={{ marginVertical: 20 }}>{/* <FeedbackModal /> */}</View>
+          <View style={{ marginTop: "20%" }}>{/* <FeedbackModal /> */}</View>
           <Text>Language Support coming soon ...</Text>
           <Text>Picture Support coming soon ...</Text>
+          <CopyEthAddress />
 
           <TouchableOpacity
             style={styles.closeButton}

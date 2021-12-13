@@ -21,23 +21,15 @@ const defaultReducer = (state = initialState, action) => {
       return newState;
 
     case types.GET_ALL_DATA_SUCCESS:
-      newState.allData = action.payload;
+      newState.allData = action.payload.data.answerArray;
       newState.loading = false;
 
       return newState;
 
     case types.POST_NEW_DATA_SUCCESS:
-      console.log("new user os", action.payload);
       const currentUser = newState.allData.findIndex(
         (item) => item.id === action.payload.id
       );
-
-      if (currentUser === -1) {
-        newState.allData.push(action.payload);
-        newState.loading = false;
-        newState.currentUser = action.payload;
-        return newState;
-      }
 
       newState.allData[currentUser] = action.payload;
       newState.currentUser = action.payload;

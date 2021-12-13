@@ -8,9 +8,9 @@ const CopyEthAddress = () => {
   };
   return (
     <View>
-      {/* <Text style={{ fontWeight: "bold", textAlign: "center" }}>
-        Donations accepted :), eth wallet below
-      </Text> */}
+      <Text style={{ fontWeight: "bold", textAlign: "center", marginTop: 20 }}>
+        eth Donations Accepted :)
+      </Text>
       <TouchableOpacity style={styles.button} onPress={copyToClipboard}>
         <Text>0xba7E2a742c429Dc686039ed9709e3524c66793eB</Text>
       </TouchableOpacity>
@@ -28,5 +28,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 30,
     borderRadius: 10,
+    marginTop: 10,
   },
 });
