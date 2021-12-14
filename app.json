@@ -2,7 +2,7 @@
   "expo": {
     "name": "Happy-Map",
     "slug": "Happy-Map",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -17,7 +17,7 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.oppongstudios.happymap",
-      "buildNumber": "2",
+      "buildNumber": "3",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "We use your location to send out your status, dont worry we dont use your exact location"
       }
@@ -27,7 +27,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "versionCode": 2,
+      "versionCode": 3,
       "package": "com.oppongstudios.happymap"
     },
     "web": {
