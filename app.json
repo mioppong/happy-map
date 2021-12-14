@@ -2,7 +2,7 @@
   "expo": {
     "name": "Happy-Map",
     "slug": "Happy-Map",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -13,17 +13,17 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.oppongstudios.happymap"
+      "bundleIdentifier": "com.oppongstudios.happymap",
+      "buildNumber": "2"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#FFFFFF",
+        "versionCode": 2
       },
       "package": "com.oppongstudios.happymap"
     },
