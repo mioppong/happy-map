@@ -9,7 +9,7 @@ import CustomCallout from "../../components/CustomCallout/CustomCallout";
 import RefreshIconButton from "../../components/RefreshIconButton";
 
 const MapScreen = (props) => {
-  const { homeStore } = props;
+  const { homeStore, getAllData } = props;
 
   useEffect(() => {
     props.getAllData();
@@ -49,7 +49,7 @@ const MapScreen = (props) => {
             alignItems: "center",
           }}
         >
-          <RefreshIconButton />
+          <RefreshIconButton onPress={() => getAllData()} />
         </View>
       </MapView>
     </View>
