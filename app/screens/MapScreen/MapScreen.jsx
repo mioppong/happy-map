@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions, View } from "react-native";
 import { connect } from "react-redux";
 import MapView, { Marker, Callout } from "react-native-maps";
 
@@ -15,7 +15,7 @@ const MapScreen = (props) => {
   }, []);
 
   return (
-    <MapView style={styles.map}>
+    <View style={styles.container}>
       <MapView style={styles.map}>
         {!homeStore.loading
           ? homeStore.allData.map((item, index) => (
@@ -36,7 +36,7 @@ const MapScreen = (props) => {
             ))
           : null}
       </MapView>
-    </MapView>
+    </View>
   );
 };
 
