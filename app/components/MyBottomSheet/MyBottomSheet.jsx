@@ -65,7 +65,6 @@ const MyBottomSheet = (props) => {
             size={75}
             onPress={() => handleEmotionSelected(2)}
           />
-          <RefreshIconButton onPress={getAllData} />
 
           <HappyIconButton
             size={75}

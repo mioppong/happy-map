@@ -6,6 +6,7 @@ import MapView, { Marker, Callout } from "react-native-maps";
 import { getAllData } from "../../redux/actions";
 import CustomMapPin from "../../components/CustomMapPin";
 import CustomCallout from "../../components/CustomCallout/CustomCallout";
+import RefreshIconButton from "../../components/RefreshIconButton";
 
 const MapScreen = (props) => {
   const { homeStore } = props;
@@ -35,6 +36,21 @@ const MapScreen = (props) => {
               </Marker>
             ))
           : null}
+
+        <View
+          style={{
+            height: 50,
+            width: 50,
+
+            position: "absolute",
+            top: "70%",
+            left: "80%",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <RefreshIconButton />
+        </View>
       </MapView>
     </View>
   );
