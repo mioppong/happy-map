@@ -1,7 +1,7 @@
 import * as React from "react";
 import Svg, { Path } from "react-native-svg";
 
-function Icon({ size = 50 }) {
+function Icon({ size = 45 }) {
   return (
     <Svg
       width={size}
