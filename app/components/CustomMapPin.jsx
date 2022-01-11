@@ -10,7 +10,7 @@ const CustomMapPin = ({ item }) => {
         alignItems: "center",
       }}
     >
-      {item.emotion % 2 == 0 ? <SadIcon /> : <HappyIcon />}
+      {item.emotion % 2 == 0 ? <HappyIcon /> : <SadIcon />}
     </View>
   );
 };

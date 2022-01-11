@@ -63,13 +63,13 @@ const MyBottomSheet = (props) => {
           <SadIconButton
             disabled={!homeStore.locationPermission}
             size={75}
-            onPress={() => handleEmotionSelected(2)}
+            onPress={() => handleEmotionSelected(1)}
           />
-
+          <RefreshIconButton onPress={() => getAllData} />
           <HappyIconButton
             size={75}
             disabled={!homeStore.locationPermission}
-            onPress={() => handleEmotionSelected(1)}
+            onPress={() => handleEmotionSelected(2)}
           />
         </View>
         <CustomTextInput value={text} onChangeText={(text) => setText(text)} />

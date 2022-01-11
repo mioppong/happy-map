@@ -2,6 +2,7 @@ import types from "../actionTypes";
 
 export const initialState = {
   allData: [],
+  countryData:[],
   currentUser: {
     id: "",
     coordinates: { longitude: 0, latitude: 0 },
@@ -22,6 +23,7 @@ const defaultReducer = (state = initialState, action) => {
 
     case types.GET_ALL_DATA_SUCCESS:
       newState.allData = action.payload.data.answerArray;
+      newState.countryData = action.payload.data.countryData;
       newState.loading = false;
 
       return newState;
