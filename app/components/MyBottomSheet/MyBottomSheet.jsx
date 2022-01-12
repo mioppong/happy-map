@@ -34,6 +34,10 @@ const MyBottomSheet = (props) => {
       image: "",
     };
     postData(newEmotion);
+
+    setTimeout(() => {
+      getAllData();
+    }, 1000);
   };
 
   return (
@@ -65,7 +69,7 @@ const MyBottomSheet = (props) => {
             size={75}
             onPress={() => handleEmotionSelected(1)}
           />
-          <RefreshIconButton onPress={() => getAllData} />
+          <RefreshIconButton onPress={() => getAllData()} />
           <HappyIconButton
             size={75}
             disabled={!homeStore.locationPermission}

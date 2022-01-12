@@ -9,11 +9,12 @@ import {
   View,
   Dimensions,
 } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { useSelector } from "react-redux";
 import myColors from "../../styles/colors";
 import { ProgressChart } from "react-native-chart-kit";
 import Close from "../../components/Icons/Close";
+import { connect } from "react-redux";
+import { getAllData } from "../../redux/actions";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -30,10 +31,6 @@ const Stats = () => {
     strokeWidth: 2, // optional, default 3
     barPercentage: 0.5,
     useShadowColorFromDataset: false, // optional
-  };
-  const data = {
-    labels: ["Swim"], // optional
-    data: [0.4],
   };
 
   return (
@@ -96,7 +93,9 @@ const Stats = () => {
             return (
               <View key={index} style={{ flex: 1, marginVertical: 10 }}>
                 <Text style={styles.countryName}>{item.country.name}</Text>
+
                 <ProgressChart
+                  key={`${index}`}
                   data={{
                     labels: ["Happy"],
                     data: [item.happy.length / total],
@@ -117,7 +116,13 @@ const Stats = () => {
   );
 };
 
-export default Stats;
+const mapDispatchToProps = (dispatch) => ({
+  getAllData: () => {
+    dispatch(getAllData());
+  },
+});
+
+export default connect(null, mapDispatchToProps)(Stats);
 
 const styles = StyleSheet.create({
   closeButtonText: {

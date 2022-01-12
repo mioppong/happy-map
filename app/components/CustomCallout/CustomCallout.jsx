@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import myColors from "../../styles/colors";
 
 const CustomCallout = ({ item }) => {
-  const calloutColor = item.emotion % 2 == 0 ? myColors.fourth : myColors.first;
+  const calloutColor = item.emotion % 2 == 0 ? myColors.first : myColors.fourth;
 
   return (
     <View

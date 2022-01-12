@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-import { StyleSheet, Dimensions, View, Text } from "react-native";
+import { StyleSheet, Dimensions, View } from "react-native";
 import { connect } from "react-redux";
 import MapView, { Marker, Callout } from "react-native-maps";
 
 import { getAllData } from "../../redux/actions";
 import CustomMapPin from "../../components/CustomMapPin";
 import CustomCallout from "../../components/CustomCallout/CustomCallout";
-import RefreshIconButton from "../../components/RefreshIconButton";
 import Stats from "../../components/Stats/Stats";
 
 const MapScreen = (props) => {
@@ -38,8 +37,6 @@ const MapScreen = (props) => {
                 </Marker>
               ))
             : null}
-
-          <RefreshIconButton onPress={() => getAllData()} />
         </MapView>
       </View>
       <Stats />
